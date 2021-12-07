@@ -1,16 +1,11 @@
 
-@include('admin.header')    
+@include('admin.header')
 <main>
     <div class="container-fluid px-4">
         <h1 class="mt-4">Data Lab</h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item active">Data Lab</li>
         </ol>
-        <div class="row mb-4">
-            <div class="col-xl-3 col-md-6">
-                <button type="button" class="btn btn-primary text-white" data-bs-toggle="modal" data-bs-target="#addModal">Tambah Data</button>
-            </div>
-        </div>
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>
@@ -34,7 +29,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($fetch as $dt) 
+                            @foreach ($fetch as $dt)
                             <tr>
                                 <td>{{$dt['tanggal']}}</td>
                                 <td>{{$dt['kode']}}</td>
@@ -43,9 +38,13 @@
                                 <td class="text-center">{{$dt['umur']}}</td>
                                 <td>{{$dt['penyakit']}}</td>
                                 <td>{{$dt['hasil']}}</td>
-                                <td>{{$dt['bukti']}}</td>
+                                <td>
+                                    @if($dt['bukti'] != null)
+                                    <a target="_blank" href="img/app/{{$dt['bukti']}}"><img src="{{asset('img/app/'.$dt['bukti'])}}" style="width:100px"></a>
+                                    @endif
+                                </td>
                                 <td class="text-center">{{$dt['dokter']}}</td>
-                                <td class="text-center"> 
+                                <td class="text-center">
                                     @if ($dt['status'] == 1)
                                         <button type="button" class="btn btn-secondary btn-sm form-modal " onclick="cekLab('{{$dt['kode'] }}')"><i class="fas fa-flask fa-fw"></i></i></button>
                                     @endif
@@ -70,26 +69,26 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="form-Pasien">
+                <form id="form-lab" method="post" action="/data-lab/ceklab" enctype="multipart/form-data">
+                    @csrf
                     <div class="form-group row mb-2">
-                        <input type="hidden" class="form-control" id="labPasien" disabled>
+                        <input type="hidden" class="form-control" id="labKode" name="kode">
                         <label class="col-3 col-form-label">Nama</label>
                         <div class="col-9">
                             <input type="text" class="form-control" id="labNama" disabled>
                         </div>
                     </div>
                     <div class="form-group row mb-2">
-                        <input type="hidden" class="form-control" id="labPasien" disabled>
                         <label class="col-3 col-form-label">Hasil Lab</label>
                         <div class="col-9">
-                            <textarea id="labHasil" cols="43" rows="5"></textarea>
+                            <textarea id="labHasil" cols="33" rows="5" name="hasil"></textarea>
                         </div>
                     </div>
                     <div class="form-group row mb-2">
                         <input type="hidden" class="form-control" id="labPasien" disabled>
                         <label class="col-3 col-form-label">Bukti Lab:</label>
                         <div class="col-9">
-                            <input class="form-control" type="file" id="formFile">
+                            <input class="form-control" type="file" name="img[]" id="formFile">
                         </div>
                     </div>
                 </form>
@@ -113,7 +112,7 @@
                 $(".overlay").removeClass('show')
                 if(res != null || res != undefined) {
                     $('#labNama').val(ucWords(res.pasien))
-                    $('#labPasien').val(res.id_pasien)
+                    $('#labKode').val(res.kode)
 
                     $("#labModal").modal('show');
 
@@ -134,37 +133,8 @@
     }
 
     const addLab = () => {
+        $('#form-lab').submit()
         $(".overlay").addClass('show')
-        const data = {
-            _token: "{{ csrf_token() }}",
-            pasien: $('#labPasien').val(),
-            dokter: dokterval,
-        }
-               
-        $.ajax({
-            type: 'POST',
-            url: '/data-lab/ceklab',
-            data: data,
-            success: function(res) {
-                if(res == true) {
-                    $(".overlay").removeClass('show')
-                    location.reload();
-
-                    return;
-                }
-
-                alert("Terjadi kesalahan! Silahkan coba lagi", "error");
-
-                return;
-            },
-            error: function(jqXHR, textStatus, error) {
-                $(".overlay").removeClass('show');
-
-                alert("Data kurang lengkap! Silahkan coba lagi", "error");
-
-                return;
-            }
-        })
     }
 </script>
 @include('admin.footer')

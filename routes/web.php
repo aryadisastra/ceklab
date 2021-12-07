@@ -14,11 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pdf.hasil_lab');
 });
 
 Route::get('/logout', 'LoginController@logout');
 Route::get('/admin', 'LoginController@index');
+Route::get('/dashboard', 'LoginController@index');
+Route::get('/dashboard/getData', 'LoginController@getData');
 Route::get('/admin/login', 'LoginController@login');
 Route::get('/data-lab','dataLabController@index');
 Route::get('/data-perawat','dataPerawatController@index');
@@ -37,11 +39,3 @@ Route::post('/data-pasien/ceklab','dataPasienController@addcekLab');
 Route::get('/data-pasien','dataPasienController@index');
 Route::get('/data-lab/ceklab/{id}','dataLabController@detailLab');
 Route::post('/data-lab/ceklab','dataLabController@updateLab');
-// Route::get('/data-lab','dataLabController@index');
-// Route::get('/data-lab','dataLabController@index');
-// Route::get('/data-lab','dataLabController@index');
-// Route::get('/data-lab','dataLabController@index');
-// Route::get('/data-lab','dataLabController@index');
-// Route::get('/data-lab','dataLabController@index');
-// Route::get('/data-lab','dataLabController@index');
-// Route::get('/data-lab','dataLabController@index');

@@ -45,7 +45,6 @@
                 }
             }
         });
-        console.log($('#datatablesSimple').DataTable())
     } );
 
     function ucWords (str) {

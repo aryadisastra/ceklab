@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\DataLab;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\CustomEnv;
+use App\Models\Pasien;
 
 class dataLabController extends Controller
 {
@@ -29,10 +32,9 @@ class dataLabController extends Controller
                     'dokter'        => $dt->dokterVal->nama,
                 ];
             }
-            // dd($fetch);
             return view('admin.data-lab',compact('fetch'));
         }
-        
+
     }
 
     public function detailLab($id)
@@ -65,13 +67,13 @@ class dataLabController extends Controller
         } else {
             try{
                 DB::beginTransaction();
-                $files = $request->file('img');
-                if($request->hasFile('img')){
+                $files = $r->file('img');
+                if($r->hasFile('img')){
                     foreach ($files as $file) {
                         $filename = $file->getClientOriginalName();
                         $imageExt =  $file->getClientOriginalExtension();
-                        $update = DataLab::where('kode',$r->kode);
-                        $file_name_convert = $update->generateNameImages();
+                        $update = DataLab::where('kode_lab',$r->kode)->first();
+                        $file_name_convert = DataLab::generateNameImages();
                         $images_true = $file_name_convert.'.'.$imageExt;
 
                         $custom_env = new CustomEnv();
@@ -79,19 +81,21 @@ class dataLabController extends Controller
 
                         if($pushCustomEnv !== false) {
                             $update->status      = 2;
-                            $update->hasil       = $r->hasil; 
-                            $update->bukti       = $images_true; 
-                            $update->updated_at  = date('y-m-d H:i:s'); 
+                            $update->hasil_lab   = $r->hasil;
+                            $update->bukti_lab   = $images_true;
                         }
                     }
                 }
-                
-                
+                $updatePasien = Pasien::where('id_pasien',$update->id_pasien)->first();
+                $updatePasien->status = 3;
+                $updatePasien->save();
+                $update->save();
                 DB::commit();
-                return response()->json($update == 1 ? True : False);
+                return redirect('/data-lab');
             } catch(Exception $e)
             {
                 DB::rollback();
+                return redirect('/data-lab');
             }
         }
     }

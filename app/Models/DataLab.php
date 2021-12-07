@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class DataLab extends Model
 {
     protected $table = 'data_lab';
+    protected $primaryKey = null;
 
     public function pasien()
     {
@@ -28,7 +29,7 @@ class DataLab extends Model
         $randomstring = '';
         for($i=0 ; $i < $length; $i++)
         {
-            $randomstring .= $characters[rand(0,$charactersLength - 1)]; 
+            $randomstring .= $characters[rand(0,$charactersLength - 1)];
         }
         return $value."_".$randomstring ;
     }
