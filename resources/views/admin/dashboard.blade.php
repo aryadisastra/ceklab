@@ -34,30 +34,32 @@
                 Data Lab
             </div>
             <div class="card-body">
-                <table id="datatablesSimple">
-                    <thead>
-                        <tr>
-                            <th>Pasien</th>
-                            <th>Usia</th>
-                            <th>Jenis Kelamin</th>
-                            <th>Hasil Diagnosa</th>
-                            <th>Status</th>
-                            <th>Dokter Penanggung Jawab</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($fetch as $dt)
-                        <tr style="background-color:{{$dt['status_angka'] == 3 ? '#74f779' : ($dt['status_angka'] == 1 ? '#fc8d8d' : '#fffc69')}}">
-                            <td>{{$dt['pasien']}}</td>
-                            <td>{{$dt['umur']}}</td>
-                            <td>{{$dt['gender']}}</td>
-                            <td>{{$dt['hasil']}}</td>
-                            <td>{{$dt['status']}}</td>
-                            <td>{{$dt['dokter']}}</td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                <div class="table-responsive table table-striped table-hover">
+                    <table id="datatablesSimple">
+                        <thead>
+                            <tr>
+                                <th>Pasien</th>
+                                <th>Usia</th>
+                                <th>Jenis Kelamin</th>
+                                <th>Hasil Diagnosa</th>
+                                <th>Status</th>
+                                <th>Dokter Penanggung Jawab</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($fetch as $dt)
+                            <tr style="background-color:{{$dt['status_angka'] == 3 ? '#74f779' : ($dt['status_angka'] == 1 ? '#fc8d8d' : '#fffc69')}}">
+                                <td>{{$dt['pasien']}}</td>
+                                <td>{{$dt['umur']}}</td>
+                                <td>{{$dt['gender']}}</td>
+                                <td>{{$dt['hasil']}}</td>
+                                <td>{{$dt['status']}}</td>
+                                <td>{{$dt['dokter']}}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
