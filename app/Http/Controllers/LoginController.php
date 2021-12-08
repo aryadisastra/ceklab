@@ -70,7 +70,7 @@ class LoginController extends Controller
                     'role'      => $cekUser->role,
                 ]
             ]);
-            return view('admin.dashboard');
+            return redirect('/dashboard');
         } else {
             return view('admin.login');
         }

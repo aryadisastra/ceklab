@@ -4,14 +4,14 @@
  </head>
 
  <body bgcolor="white">
-  <font face="Arial" color="black"> <p align="center"> PEMERINTAH KOTA CIREBON </p></font>
-  <font face="Arial" color="blue"> <p align="center"> DINAS PENDIDIKAN </p></font>
-  <font face="Arial" color="green"> <p align="center"> SEKOLAH MENENGAH KEJURUAN NEGERI 1 CIREBON </p></font>
-  <font face="Arial" color="black" size="3"> <p align="center"> JL. Perjuangan By Pass Sunyaragi Telp.(0231) 123456 Cirebon 45141 </p></font>
+  <font face="Arial" color="black"> <p align="center"> PEMERINTAH KOTA CIMAHI </p></font>
+  <font face="Arial" color="blue"> <p align="center"> DINAS KESEHATAN </p></font>
+  <font face="Arial" color="green"> <p align="center"> UNIVERSITAS JENDERAL ACHMAD YANI </p></font>
+  <font face="Arial" color="black" size="3"> <p align="center"> JL. TERUSAN JEND SUDIRMAN Telp.(022) 6631622 </p></font>
   <hr>
 
-  <font face="Arial" color="red" size="6"> <p align="center"> <u> <b> SURAT KETERANGAN PENELITIAN </b></u></font><br>
-  <font face="Arial" color="red" size="4"> Nomer: 8021/SMKN1/2015 </p></font>
+  <font face="Arial" color="red" size="6"> <p align="center"> <u> <b> SURAT KETERANGAN HASIL LAB </b></u></font><br>
+  <!-- <font face="Arial" color="red" size="4"> Nomer: 8021/SMKN1/2015 </p></font> -->
 
 
 

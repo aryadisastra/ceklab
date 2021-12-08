@@ -6,8 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Cek Lab Result</title>
-        <link rel="icon" href="{{asset('img/app/logo.png')}}">
+        <title>Laboratorium Result Check</title>
+        <link rel="icon" href="{{asset('img/app/logounjani.png')}}">
         <link href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
         <link href="{{asset('css/styles.css')}}" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
@@ -27,11 +27,11 @@
             <div class="ring"></div>
             <p>Tunggu Sebentar...</p>
         </div>
-    </div> 
+    </div>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3"><img src="{{asset('img/app/logo.png')}}" style="max-width: 30px; border-radius:50%; background-color:#bfb6b6"> Cek Lab Result</a>
+            <a class="navbar-brand ps-3"><img src="{{asset('img/app/logounjani.png')}}" style="max-width: 30px; border-radius:50%; background-color:#bfb6b6"> LRCheck</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
