@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('pdf.hasil_lab');
+    return view('welcome');
 });
 
 Route::get('/logout', 'LoginController@logout');
