@@ -72,6 +72,10 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-user-md"></i></div>
                                 Data Dokter
                             </a>
+                            <a class="nav-link" href="/data-tlm">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-cog"></i></div>
+                                Data Teknik Lab Medis
+                            </a>
                             <a class="nav-link" href="/data-pasien">
                                 <div class="sb-nav-link-icon"><i class="fas fa-procedures"></i></div>
                                 Data Pasien

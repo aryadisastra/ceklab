@@ -16,7 +16,10 @@ class dataLabController extends Controller
             return view('admin.login');
         } else {
             $fetch = [];
-            $dataLab = DataLab::where('dokter',session('user')['Username'])->get();
+            $dataLab = DataLab::where('dokter',session('user')['Username'])
+                        ->orWhere('perawat', session('user')['Username'])
+                        ->orWhere('tlm', session('user')['Username'])
+                        ->get();
             foreach($dataLab as $dt)
             {
                 $fetch[] = [

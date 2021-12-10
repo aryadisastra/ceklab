@@ -8,9 +8,7 @@
         </ol>
         <div class="row mb-4">
             <div class="col-xl-3 col-md-6">
-                @if (session('user')['role'] == 3)
-                <button type="button" class="btn btn-primary text-white" data-bs-toggle="modal" data-bs-target="#addModal">Tambah Data</button>
-                @endif
+            <button type="button" class="btn btn-primary text-white" data-bs-toggle="modal" data-bs-target="#addModal">Tambah Data</button>
             </div>
         </div>
         <div class="card mb-4">
@@ -44,7 +42,7 @@
                                     <td>{{$dt->no_hp}}</td>
                                     <td>{{$dt->status == 1 ? 'Aktif' : 'Non-Aktif'}}</td>
                                     <td>
-                                        @if ($dt->username == session('user')['Username'] || session('user')['role'] == 3)  
+                                        @if ($dt->username == session('user')['Username'] || session('user')['role'] == 4)  
                                         <button  type="button" class="btn btn-info btn-sm form-modal" onclick="detailPerawat('{{ $dt->username }}')"><i class="fa fa-file-text fa-fw"></i></button>
                                         @endif
                                     </td>

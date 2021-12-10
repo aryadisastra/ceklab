@@ -16,8 +16,10 @@ class dataPasienController extends Controller
             return view('admin.login');
         } else {
             $dokter = User::where('role',1)->where('status',1)->get();
+            $perawat = User::where('role',2)->where('status',1)->get();
+            $tlm = User::where('role',3)->where('status',1)->get();
             $dataPasien = Pasien::all();
-            return view('admin.data-pasien',compact('dataPasien','dokter'));
+            return view('admin.data-pasien',compact('dataPasien','dokter','perawat','tlm'));
         }
         
     }

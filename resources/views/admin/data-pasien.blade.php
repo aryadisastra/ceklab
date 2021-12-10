@@ -182,6 +182,28 @@
                             </select>
                         </div>
                     </div>
+                    <div class="form-group row mb-2">
+                        <label class="col-3 col-form-label">Perawat</label>
+                        <div class="col-9">
+                            <select name="perawat" class="form-select col-9" id="labPerawat">
+                                <option value="0">-----</option>
+                                @foreach ($perawat as $dt)
+                                    <option value="{{$dt->username}}">{{ucWords($dt->nama)}}</option> 
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row mb-2">
+                        <label class="col-3 col-form-label">TLM</label>
+                        <div class="col-9">
+                            <select name="rlm" class="form-select col-9" id="labTlm">
+                                <option value="0">-----</option>
+                                @foreach ($tlm as $dt)
+                                    <option value="{{$dt->username}}">{{ucWords($dt->nama)}}</option> 
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
                 </form>
             </div>
             <div class="modal-footer">

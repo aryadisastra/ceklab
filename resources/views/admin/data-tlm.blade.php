@@ -2,9 +2,9 @@
 @include('admin.header')    
 <main>
     <div class="container-fluid px-4">
-        <h1 class="mt-4">Data Dokter</h1>
+        <h1 class="mt-4">Data Teknik Labolatorium Medis</h1>
         <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item active">Data Dokter</li>
+            <li class="breadcrumb-item active">Data Teknik Labolatorium Medis</li>
         </ol>
         <div class="row mb-4">
             <div class="col-xl-3 col-md-6">
@@ -14,7 +14,7 @@
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>
-                Daftar Dokter
+                Daftar Teknik Labolatorium Medis
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -197,7 +197,7 @@
                
         $.ajax({
             type: 'POST',
-            url: '/data-dokter',
+            url: '/data-tlm',
             data: data,
             success: function(res) {
                 if(res == true) {
@@ -226,7 +226,7 @@
         $(".overlay").addClass('show')
         $.ajax({
             type: 'GET',
-            url: '/data-dokter/'+id,
+            url: '/data-tlm/'+id,
             success: function(res) {
                 
                 $(".overlay").removeClass('show')
@@ -269,7 +269,7 @@
 
         $.ajax({
             type: 'PUT',
-            url: '/data-dokter',
+            url: '/data-tlm',
             data: data,
             success: (res) => {
                 $(".overlay").removeClass('show')

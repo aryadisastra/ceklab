@@ -45,9 +45,7 @@
                                 </td>
                                 <td class="text-center">{{$dt['dokter']}}</td>
                                 <td class="text-center">
-                                    @if ($dt['status'] == 1)
-                                        <button type="button" class="btn btn-secondary btn-sm form-modal " onclick="cekLab('{{$dt['kode'] }}')"><i class="fas fa-flask fa-fw"></i></i></button>
-                                    @endif
+                                    <button type="button" class="btn btn-secondary btn-sm form-modal " onclick="cekLab('{{$dt['kode'] }}')"><i class="fas fa-flask fa-fw"></i></i></button>
                                 </td>
                             </tr>
                             @endforeach

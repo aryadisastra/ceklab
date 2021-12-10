@@ -38,6 +38,11 @@ Route::post('/data-dokter','dataDokterController@add');
 Route::get('/data-dokter/{id}','dataDokterController@detail');
 Route::put('/data-dokter','dataDokterController@update');
 
+Route::get('/data-tlm','dataTlmController@index');
+Route::post('/data-tlm','dataTlmController@add');
+Route::get('/data-tlm/{id}','dataTlmController@detail');
+Route::put('/data-tlm','dataTlmController@update');
+
 Route::get('/data-pasien','dataPasienController@index');
 Route::put('/data-pasien','dataPasienController@update');
 Route::post('/data-pasien','dataPasienController@add');
