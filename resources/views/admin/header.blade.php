@@ -74,7 +74,7 @@
                             </a>
                             <a class="nav-link" href="/data-tlm">
                                 <div class="sb-nav-link-icon"><i class="fas fa-user-cog"></i></div>
-                                Data Teknik Lab Medis
+                                Data Teknologi Lab Medis
                             </a>
                             <a class="nav-link" href="/data-pasien">
                                 <div class="sb-nav-link-icon"><i class="fas fa-procedures"></i></div>

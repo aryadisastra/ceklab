@@ -2,9 +2,9 @@
 @include('admin.header')    
 <main>
     <div class="container-fluid px-4">
-        <h1 class="mt-4">Data Teknik Labolatorium Medis</h1>
+        <h1 class="mt-4">Data Teknologi Laboratorium Medis</h1>
         <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item active">Data Teknik Labolatorium Medis</li>
+            <li class="breadcrumb-item active">Data Teknologi Laboratorium Medis</li>
         </ol>
         <div class="row mb-4">
             <div class="col-xl-3 col-md-6">
@@ -14,7 +14,7 @@
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>
-                Daftar Teknik Labolatorium Medis
+                Daftar Teknologi Laboratorium Medis
             </div>
             <div class="card-body">
                 <div class="table-responsive">
