@@ -1,6 +1,6 @@
 <html>
  <head>
-  <title> Cara Membikin Surat </title>
+  <title> Laboratorium Result Check</title>
  </head>
 
  <body bgcolor="white">
@@ -19,30 +19,28 @@
 
 
   <p align="center">
-   Berdasarkan surat dari Universitas Pendidikan Indonesia (UPI) Nomor 4609/UN404/DT/2014
-  tanggal 15 Desember 2015 perihal ijin melakukan penelitian, dengan ini kami menerangkan bahwa:
+   Berdasarkan Hasil Pengujian Lab Dan Fakta Yang kami Periksa, Maka kami Menuliskan
+   Hasil Seperti Yang Tertera Dibawah:
   </p>
 
 
     <pre>
-    Nama  :Riffa Alfaridzi Priatna
+    Nama  : {{$data->pasien->nama}}
 
 
-    NIM  :0804252
+    Penyakit/Keluhan  :  {{$data->pasien->penyakit}}
 
 
-    Fakultas :Pendidikan Matematika dan Ilmu Pengetahuan Alam
+    Hasil Lab : {{$data->hasil_lab}}
 
 
-    Jurusan  :Pendidikan Ilmu Komputer
+    Bukti Lab  : <img style="width:100px" src="{{asset('img/app/'.$data->bukti_lab)}}">
     </pre>
 
 
 
   <p align="center"><font face="Arial">
-   Telah melakukan penelitian di sekolah kami tanggal<font color="red"> 7 s/d 21 Maret 2015</font>, dengan judul
-  "Penerapan Metode Pembelajaran IMPROVE Berbasis Multimedia Interaktif Untuk Meningkatkan
-  Intrapersonal intelegensi siswa dalam Mata Pelajaran TIK"
+   Telah Melakukan Pemeriksaan Di Klinik Kami tanggal<font color="red"> {{Date('d M Y', strtotime($data->updated_at))}}</font>
   </font></p>
  </body>
 </html>

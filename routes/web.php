@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/get-data-lab', 'PasienLabController@getPdf');
 
 Route::get('/logout', 'LoginController@logout');
 Route::get('/admin', 'LoginController@index');

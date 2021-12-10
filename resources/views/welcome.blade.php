@@ -108,33 +108,39 @@
         }
     </style>
     <body>
+        @if($errors->any())
+            <div class="wrapper error">
+                <div class="logo"> <img src="{{asset('img/app/logofix.png')}}" alt=""> </div>
+                <div class="text-center mt-4 name" style="color:red"> {{$errors->first()}}</div>
+                <button class="btn mt-3" id="btnScroll">Cari Lagi</button>
+            </div>
+        @endif
         <div class="wrapper">
             <div class="logo"> <img src="{{asset('img/app/logofix.png')}}" alt=""> </div>
             <div class="text-center mt-4 name"> Selamat Datang... </div>
             <div class="text-center name"> Masukan Kode Lab </div>
             <form class="p-3 mt-3">
                 <div class="form-field d-flex align-items-center">
-                    <input type="text" name="userName" id="username" placeholder="Kode : CL-...">
+                    <input type="text" name="kode" id="kode" placeholder="Kode : CL-...">
                 </div>
             </form>
-            <button class="btn mt-3" id="btnLogin">Cari</button>
+            <button class="btn mt-3" id="btnCari">Cari</button>
         </div>
     </body>
-    {{-- <script src="//cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"> --}}
     <script>
         $(document).ready(function(){
-            $('#btnLogin').on('click',function(){
-                username = $('#username').val()
-                pwd      = $('#pwd').val()
-                url      ='/admin/login'
-                if (username != '' && pwd != ''){
-                    location.href = `${url}?username=${username}&pwd=${pwd}`
+            $('#btnCari').on('click',function(){
+                kode = $('#kode').val()
+                url ='/get-data-lab'
+                if (kode != ''){
+                    location.href = `${url}?kode=${kode}`
                 } else {
-                    alert("Masukan Username Dan Password Yang Benar!!!");
+                    alert("Masukan Kode Yang Benar!!!");
                 }
             })
-
-
+            $('#btnScroll').on('click',function(){
+                $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+            })
         })
     </script>
 </html>
