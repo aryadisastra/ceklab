@@ -34,23 +34,21 @@ class LoginController extends Controller
 
     public function getData()
     {
-        $data = DataLab::select(
-                DB::raw('COUNT(*) as total'),
-                DB::raw('SUM(case when status = 1 then 1 else 0 end) as belum'),
-                DB::raw('SUM(case when status = 2 then 1 else 0 end) as menunggu'),
-                DB::raw('SUM(case when status = 3 then 1 else 0 end) as selesai')
-            )
-            ->get();
         $fetch = [];
-        foreach($data as $dt)
-        {
-            $fetch[] = [
-                'total'     => $dt->total,
-                'belum'     => $dt->belum,
-                'menunggu'  => $dt->menunggu,
-                'selesai'   => $dt->selesai,
-            ];
-        }
+        $data1 = DataLab::select(DB::raw('COUNT(*) as total'))->first();
+        $data2 = DataLab::select(DB::raw('COUNT(*) as belum'))->where('status',1)->first();
+        $data3 = DataLab::select(DB::raw('COUNT(*) as menunggu'))->where('status',2)->first();
+        $data4 = DataLab::select(DB::raw('COUNT(*) as selesai'))->where('status',3)->first();
+        $total = $data1->total;
+        $belum = $data2->belum;
+        $menunggu = $data3->menunggu;
+        $selesai = $data4->selesai;
+        $fetch[] = [
+            'total'     => $total,
+            'belum'     => $belum,
+            'menunggu'  => $menunggu,
+            'selesai'   => $selesai,
+        ];
         return response()->json($fetch);
     }
 
