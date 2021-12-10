@@ -43,6 +43,8 @@
                                 <th>Jenis Kelamin</th>
                                 <th>Hasil Diagnosa</th>
                                 <th>Status</th>
+                                <th>Perawat</th>
+                                <th>Teknik Lab Medis</th>
                                 <th>Dokter Penanggung Jawab</th>
                             </tr>
                         </thead>
@@ -54,6 +56,8 @@
                                 <td>{{$dt['gender']}}</td>
                                 <td>{{$dt['hasil']}}</td>
                                 <td>{{$dt['status']}}</td>
+                                <td>{{$dt['perawat']}}</td>
+                                <td>{{$dt['tlm']}}</td>
                                 <td>{{$dt['dokter']}}</td>
                             </tr>
                             @endforeach

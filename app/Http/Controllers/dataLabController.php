@@ -32,7 +32,9 @@ class dataLabController extends Controller
                     'penyakit'      => $dt->pasien->penyakit,
                     'hasil'         => $dt->hasil_lab,
                     'bukti'         => $dt->bukti_lab,
-                    'dokter'        => $dt->dokterVal->nama,
+                    'perawat'       => ucWords($dt->perawatVal->nama),
+                    'tlm'           => ucWords($dt->tlmVal->nama),
+                    'dokter'        => ucWords($dt->dokterVal->nama),
                 ];
             }
             return view('admin.data-lab',compact('fetch'));

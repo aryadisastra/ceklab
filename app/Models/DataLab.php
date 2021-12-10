@@ -18,6 +18,14 @@ class DataLab extends Model
     {
         return $this->belongsTo('App\Models\User','dokter','username');
     }
+    public function perawatVal()
+    {
+        return $this->belongsTo('App\Models\User','perawat','username');
+    }
+    public function tlmVal()
+    {
+        return $this->belongsTo('App\Models\User','tlm','username');
+    }
 
     static function generateNameImages()
     {

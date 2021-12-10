@@ -24,6 +24,8 @@ class LoginController extends Controller
                     'gender'           => $dt->pasien->jenis_kelamin == 1 ? 'Laki-Laki' : 'Perempuan',
                     'hasil'            => $dt->hasil_lab,
                     'status_angka'     => $dt->status,
+                    'perawat'          => ucWords($dt->perawatVal->nama),
+                    'tlm'              => ucWords($dt->tlmVal->nama),
                     'dokter'           => ucWords($dt->dokterVal->nama),
                     'status'           => $dt->status == 1 ? 'Belum Diproses' : ($dt->status == 2 ? 'Menunggu Konfirmasi Pasien' : 'Selesai')
                 ];

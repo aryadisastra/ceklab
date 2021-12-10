@@ -90,6 +90,8 @@ class dataPasienController extends Controller
                 'kode_lab'      => 'CL-'.Helper::randomString(),
                 'id_pasien'     => $r->pasien,
                 'dokter'        => $r->dokter,
+                'perawat'       => $r->perawat,
+                'tlm'           => $r->tlm,
                 'status'        => 1,
                 'creator'       => session('user')['Username'],
                 'created_at'    => date('Y-m-d H:i:s'),

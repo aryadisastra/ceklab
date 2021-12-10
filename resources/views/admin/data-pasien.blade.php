@@ -216,15 +216,21 @@
 </main>
 
 <script>
-    let dokterval = 0;
-    let value_gender = 0;
+    let dokterval       = 0;
+    let value_gender    = 0;
+    let value_perawat   = 0;
+    let value_tlm       = 0;
     $('#labDokter').on('change',function(){
         dokterval = $(this).val()
-        console.log(dokterval)
+    })
+    $('#labPerawat').on('change',function(){
+        perawatval = $(this).val()
+    })
+    $('#labTlm').on('change',function(){
+        tlmval = $(this).val()
     })
     $('.value-gender').on('click',function(){
         value_gender = $(this).val()
-        console.log(value_gender)
     })
     const addPasien = () => {
         $(".overlay").addClass('show')
@@ -370,6 +376,8 @@
             _token: "{{ csrf_token() }}",
             pasien: $('#labPasien').val(),
             dokter: dokterval,
+            perawat: perawatval,
+            tlm: tlmval,
         }
                
         $.ajax({

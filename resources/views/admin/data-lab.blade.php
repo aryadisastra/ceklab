@@ -24,6 +24,8 @@
                                 <th>Keluhan</th>
                                 <th>Hasil Lab</th>
                                 <th>Bukti Lab</th>
+                                <th>Perawat</th>
+                                <th>Teknik Lab Medis</th>
                                 <th>Dokter Yang Bertanggung Jawab</th>
                                 <th>Aksi</th>
                             </tr>
@@ -43,6 +45,8 @@
                                     <a target="_blank" href="img/app/{{$dt['bukti']}}"><img src="{{asset('img/app/'.$dt['bukti'])}}" style="width:100px"></a>
                                     @endif
                                 </td>
+                                <td class="text-center">{{$dt['perawat']}}</td>
+                                <td class="text-center">{{$dt['tlm']}}</td>
                                 <td class="text-center">{{$dt['dokter']}}</td>
                                 <td class="text-center">
                                     <button type="button" class="btn btn-secondary btn-sm form-modal " onclick="cekLab('{{$dt['kode'] }}')"><i class="fas fa-flask fa-fw"></i></i></button>
