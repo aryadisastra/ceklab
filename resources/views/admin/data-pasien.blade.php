@@ -117,16 +117,17 @@
                     <div class="form-group row mb-2">
                         <label class="col-3 col-form-label">Nama</label>
                         <div class="col-9">
+                            <input type="hidden" class="form-control" id="editId">
                             <input type="text" class="form-control" id="editNama">
                         </div>
                     </div>
                     <label class="col-3 col-form-label">Jenis Kelamin</label>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="editgender" id="lakilaki" value="1">
+                        <input class="form-check-input value-gender" type="radio" name="editgender" id="lakilaki" value="1">
                         <label class="form-check-label" for="lakilaki">Laki-Laki</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="editgender" id="perempuan" value="2">
+                        <input class="form-check-input value-gender" type="radio" name="editgender" id="perempuan" value="2">
                         <label class="form-check-label" for="perempuan">Perempuan</label>
                     </div>
                     <div class="form-group row mb-2">
@@ -194,8 +195,14 @@
 
 <script>
     let dokterval = 0;
+    let value_gender = 0;
     $('#labDokter').on('change',function(){
         dokterval = $(this).val()
+        console.log(dokterval)
+    })
+    $('.value-gender').on('click',function(){
+        value_gender = $(this).val()
+        console.log(value_gender)
     })
     const addPasien = () => {
         $(".overlay").addClass('show')
@@ -243,6 +250,7 @@
                 
                 $(".overlay").removeClass('show')
                 if(res != null || res != undefined) {
+                    $('#editId').val(res.id_pasien)
                     $('#editNama').val(res.nama)
                     $('#editUmur').val(res.umur)
                     $('#editPenyakit').val(res.penyakit)
@@ -270,12 +278,11 @@
         
         const data = {
             _token: "{{ csrf_token() }}",
+            id: $('#editId').val(),
             nama: $('#editNama').val(),
-            username: $('#editUsername').val(),
-            password: $('#editPassword').val(),
+            umur: $('#editUmur').val(),
+            penyakit: $('#editPenyakit').val(),
             gender: value_gender,
-            nohp: $('#editNo').val(),
-            status: value_status,
         }
 
         $.ajax({

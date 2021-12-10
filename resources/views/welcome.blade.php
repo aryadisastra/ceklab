@@ -6,7 +6,7 @@
         <!-- <link rel="stylesheet" href="{{asset('css/login.css')}}"> -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" href="{{asset('img/app/logounjani.png')}}">
+        <link rel="icon" href="{{asset('img/app/logofix.png')}}">
     </head>
     <style>
         @import url('//fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
@@ -109,7 +109,7 @@
     </style>
     <body>
         <div class="wrapper">
-            <div class="logo"> <img src="{{asset('img/app/logounjani.png')}}" alt=""> </div>
+            <div class="logo"> <img src="{{asset('img/app/logofix.png')}}" alt=""> </div>
             <div class="text-center mt-4 name"> Selamat Datang... </div>
             <div class="text-center name"> Masukan Kode Lab </div>
             <form class="p-3 mt-3">

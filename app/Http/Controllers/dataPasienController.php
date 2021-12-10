@@ -56,16 +56,12 @@ class dataPasienController extends Controller
         if(!session('user')){
             return view('admin.login');
         } else {
-            $get    = User::where('username',$r->username)->first();
-            $update = User::where('username',$r->username)->update([
-                'username'          => $r->username,
-                'password'          => isset($r->password) ? md5(sha1(md5($r->password))) : $get->password ,
-                'nama'              => $r->nama,
-                'jenis_kelamin'     => $r->gender != 0 ? $r->gender : $get->jenis_kelamin,
-                'no_hp'             => $r->nohp,
-                'role'              => 2,
-                'status'            => $r->status != 0 ? $r->status : $get->status,
-                'updated_at'        => date('Y-m-d H:i:s'),
+            $get    = Pasien::where('id_pasien',$r->id)->first();
+            $update = Pasien::where('id_pasien',$r->id)->update([
+                'nama'          => $r->nama,
+                'jenis_kelamin' => $r->gender == 0 ? $get->jenis_kelamin : $r->gender,
+                'umur'          => $r->umur,
+                'penyakit'      => $r->penyakit
             ]);
     
             return response()->json($update == 1 ? True : False);
