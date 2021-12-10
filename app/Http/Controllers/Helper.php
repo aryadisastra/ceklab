@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class Helper extends Controller
 {
-    function randomString($length = 7) {
+    public static function randomString($length = 7) {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);
         $randomString = '';
