@@ -268,7 +268,6 @@
         })
     }
 
-    
     const detailPasien = (id) => {
         $(".overlay").addClass('show')
         $.ajax({
